@@ -33,4 +33,19 @@ public class PuzzleUnitTest {
 		assertEquals(b.toString(), writer.toString());
 		pw.close();
 	}
+	
+	@Test
+	public void testIsGoal() {
+		Board a = new Board("567102348");
+		Board b = new Board("567102348");
+		Board c = new Board("567102384");
+		Board d = new Board();
+		assertTrue(a.isGoal(b));
+		assertFalse(a.isGoal(c));
+		assertFalse(a.isGoal(d));
+	}
+	
+	
+	
+	
 }
