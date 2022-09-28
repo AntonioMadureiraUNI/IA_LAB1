@@ -45,7 +45,11 @@ public class PuzzleUnitTest {
 		assertFalse(a.isGoal(d));
 	}
 	
-	
-	
-	
+
+	public void testhasCode() {
+		Board a = new Board("123485670");
+		Board b = new Board("123485670");
+	    assertTrue(a.equals(b) && b.equals(a));
+	    assertTrue(a.hashCode() == b.hashCode());
+	}
 }

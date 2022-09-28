@@ -1,10 +1,12 @@
 package trabalho;
 
+import java.util.Arrays;
 import java.util.List;
 
 public class Board implements Ilayout, Cloneable {
 	private static final int dim = 3;
 	private int board[][];
+	private int hashCode = -1;
 
 	public Board() {
 		board = new int[dim][dim];
@@ -39,12 +41,12 @@ public class Board implements Ilayout, Cloneable {
 
 	public boolean equals(Object o) {
 		return false;
-		// TO BE COMPLETED
 	}
 
 	public int hashCode() {
-		return 0;
-		// TO BE COMPLETED
+		if (this.hashCode != -1) return hashCode;
+        this.hashCode = Arrays.deepHashCode(board);
+        return this.hashCode;
 	}
 	// ... TO BE COMPLETED
 
@@ -69,7 +71,7 @@ public class Board implements Ilayout, Cloneable {
 
 	@Override
 	public double getG() {
-		// TODO Auto-generated method stub
+		
 		return 0;
 	}
 }
