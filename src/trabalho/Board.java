@@ -34,8 +34,7 @@ public class Board implements Ilayout, Cloneable {
 					//result.append("\n");					
 			}
 		}
-		return result.toString();	
-		// TO BE COMPLETED
+		return result.toString();
 	}
 
 	public boolean equals(Object o) {
