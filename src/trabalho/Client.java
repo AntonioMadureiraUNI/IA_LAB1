@@ -21,5 +21,4 @@ public class Client {
 		}
 		sc.close();
 	}
-
 }
