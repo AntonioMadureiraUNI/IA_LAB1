@@ -3,6 +3,8 @@ package trabalho;
 import java.util.Arrays;
 import java.util.List;
 
+import trabalho.BestFirst.State;
+
 public class Board implements Ilayout, Cloneable {
 	private static final int dim = 3;
 	private int board[][];
@@ -40,15 +42,23 @@ public class Board implements Ilayout, Cloneable {
 	}
 
 	public boolean equals(Object o) {
-		return false;
+		if (this == o)
+			return true;
+		if (o == null)
+			return false;
+		if (getClass() != o.getClass())
+			return false;
+		Board n = (Board) o;
+		return Arrays.deepEquals(board, n.board) && hashCode == n.hashCode;
 	}
 
 	public int hashCode() {
-		if (this.hashCode != -1) return hashCode;
-        this.hashCode = Arrays.deepHashCode(board);
-        return this.hashCode;
-	}
-	// ... TO BE COMPLETED
+		if (this.hashCode != -1)
+			return hashCode;
+		this.hashCode = Arrays.deepHashCode(board);
+		return this.hashCode;
+	}	
+	
 
 	// Interface
 	@Override
@@ -60,18 +70,17 @@ public class Board implements Ilayout, Cloneable {
 	@Override
 	public boolean isGoal(Ilayout l) {
 		Board lBoard = (Board) l;
-		if(lBoard == null)
+		if (lBoard == null)
 			return false;
-		for(int i = 0; i < dim; i++)
-			for(int j=0; j < dim; j++)
-				if(this.board[i][j] != lBoard.board[i][j])
+		for (int i = 0; i < dim; i++)
+			for (int j = 0; j < dim; j++)
+				if (this.board[i][j] != lBoard.board[i][j])
 					return false;
 		return true;
 	}
 
 	@Override
 	public double getG() {
-		
-		return 0;
+		return 1;
 	}
 }

@@ -4,6 +4,8 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import java.io.PrintWriter;
 import java.io.StringWriter;
+import java.util.HashMap;
+import java.util.Map;
 
 import org.junit.jupiter.api.Test;
 
@@ -44,7 +46,6 @@ public class PuzzleUnitTest {
 		assertFalse(a.isGoal(c));
 		assertFalse(a.isGoal(d));
 	}
-	
 
 	public void testhasCode() {
 		Board a = new Board("123485670");
@@ -52,4 +53,23 @@ public class PuzzleUnitTest {
 	    assertTrue(a.equals(b) && b.equals(a));
 	    assertTrue(a.hashCode() == b.hashCode());
 	}
+
+	 @Test
+	 public void testHashcode() {
+		 Board s1 = new Board("567102348");
+		 Board s2 = new Board("567102348");
+		 
+		 assertTrue(s1.equals(s2));
+		 assertTrue(s1.hashCode()==s2.hashCode());
+	 }
+	 
+	 @Test
+	 public void testEquals() {
+		 Board s1 = new Board("567102348");
+		 Board s2 = new Board("567102348");
+		 Board s3 = new Board("567102384");
+		 
+		 assertTrue(s1.equals(s2));
+		 assertFalse(s1.equals(s3));
+	 }
 }

@@ -48,7 +48,6 @@ class BestFirst {
 			State n = (State) o;
 
 			return this.layout.equals(n.layout);
-
 		}
 	}
 
@@ -75,6 +74,5 @@ class BestFirst {
 		List<State> sucs;
 		return null;
 // TO BE COMPLETED
-
 	}
 }
