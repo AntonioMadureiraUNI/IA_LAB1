@@ -23,15 +23,15 @@ public class Board implements Ilayout, Cloneable {
 
 	public String toString() {
 		StringBuilder result = new StringBuilder();
-		for(int i = 0; i < dim; i++) {
-			for(int j = 0; j < dim; j++) {
-				if(board[i][j] == 0)
+		for (int i = 0; i < dim; i++) {
+			for (int j = 0; j < dim; j++) {
+				if (board[i][j] == 0)
 					result.append(" ");
 				else
-					result.append(board[i][j]);					
-				if(j == dim-1 )
+					result.append(board[i][j]);
+				if (j == dim - 1)
 					result.append(System.lineSeparator());
-					//result.append("\n");					
+				// result.append("\n");
 			}
 		}
 		return result.toString();
@@ -46,9 +46,9 @@ public class Board implements Ilayout, Cloneable {
 		return 0;
 		// TO BE COMPLETED
 	}
-	//... TO BE COMPLETED
-	
-	//Interface
+	// ... TO BE COMPLETED
+
+	// Interface
 	@Override
 	public List<Ilayout> children() {
 		// TODO Auto-generated method stub
@@ -57,8 +57,14 @@ public class Board implements Ilayout, Cloneable {
 
 	@Override
 	public boolean isGoal(Ilayout l) {
-		// TODO Auto-generated method stub
-		return false;
+		Board lBoard = (Board) l;
+		if(lBoard == null)
+			return false;
+		for(int i = 0; i < dim; i++)
+			for(int j=0; j < dim; j++)
+				if(this.board[i][j] != lBoard.board[i][j])
+					return false;
+		return true;
 	}
 
 	@Override
