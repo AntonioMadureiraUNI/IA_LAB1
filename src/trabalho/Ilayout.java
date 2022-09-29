@@ -2,7 +2,7 @@ package trabalho;
 
 import java.util.List;
 
-interface Ilayout {
+public interface Ilayout {
 	/**
 	 * @return the children of the receiver.
 	 */
