@@ -16,7 +16,7 @@ public class Client {
 				BestFirst.State i = it.next();
 				System.out.println(i);
 				if (!it.hasNext())
-					System.out.println(i.getG());
+					System.out.println((int)i.getG());
 			}
 		}
 		sc.close();
