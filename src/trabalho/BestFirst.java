@@ -1,6 +1,8 @@
 package trabalho;
 
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
@@ -72,7 +74,30 @@ class BestFirst {
 		fechados = new HashMap<>();
 		abertos.add(new State(s, null));
 		List<State> sucs;
-		return null;
-// TO BE COMPLETED
+		
+		try {
+			while(true) {
+				if(abertos.isEmpty())
+					return null;
+				State atual = abertos.poll();
+				if(atual.layout.isGoal(goal)) {
+					List<State> solution = new ArrayList<State>();
+					for(int i = 0; i < atual.layout.getG(); i++) {
+						solution.add(atual.father);
+					}
+					Collections.reverse(solution);
+					return solution.iterator();
+				}					
+				else {
+					sucs = sucessores(atual);
+					fechados.put(atual.layout, atual);
+					for (int i = 0; i < sucs.size(); i++)
+						if(!fechados.containsKey(sucs.get(i).layout))
+							abertos.add(sucs.get(i));
+				}
+			}
+		} catch (OutOfMemoryError error) {
+			return null;
+		}
 	}
 }
