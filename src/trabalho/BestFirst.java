@@ -1,7 +1,6 @@
 package trabalho;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -79,18 +78,19 @@ class BestFirst {
 			while(true) {
 				if(abertos.isEmpty())
 					return null;
-				State atual = abertos.poll();
-				if(atual.layout.isGoal(goal)) {
+				actual = abertos.poll();
+				if(actual.layout.isGoal(objective)) {
 					List<State> solution = new ArrayList<State>();
-					for(int i = 0; i < atual.layout.getG(); i++) {
-						solution.add(atual.father);
+					while(actual != null) {
+						solution.add(actual);
+						actual = actual.father;
 					}
 					Collections.reverse(solution);
 					return solution.iterator();
 				}					
 				else {
-					sucs = sucessores(atual);
-					fechados.put(atual.layout, atual);
+					sucs = sucessores(actual);
+					fechados.put(actual.layout, actual);
 					for (int i = 0; i < sucs.size(); i++)
 						if(!fechados.containsKey(sucs.get(i).layout))
 							abertos.add(sucs.get(i));

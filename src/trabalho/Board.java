@@ -2,10 +2,7 @@ package trabalho;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collections;
 import java.util.List;
-
-import trabalho.BestFirst.State;
 
 public class Board implements Ilayout, Cloneable {
 	private static final int dim = 3;
@@ -130,7 +127,7 @@ public class Board implements Ilayout, Cloneable {
 		}
 		
 		a = copyBoard2(this.board);
-		if (position[1] + 1 <= 2) {
+		if (position[0] + 1 <= 2) {
 			Board x3 = swaprows(a, position[0], position[0] + 1, position[1]);
 			o.add(x3);
 		}
