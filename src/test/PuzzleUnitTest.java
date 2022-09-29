@@ -2,14 +2,19 @@ package test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+
 import java.io.PrintWriter;
 import java.io.StringWriter;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.junit.jupiter.api.Test;
 
 import trabalho.Board;
+import trabalho.Ilayout;
 
 public class PuzzleUnitTest {
 	@Test
@@ -71,5 +76,22 @@ public class PuzzleUnitTest {
 		 
 		 assertTrue(s1.equals(s2));
 		 assertFalse(s1.equals(s3));
+	 }
+	 
+	 @Test
+	 public void testchildren() {
+		 Board s1 = new Board("567102348");
+		 Board s2 = new Board("507162348");
+		 Board s3 = new Board("567012348");
+		 Board s4 = new Board("567120348");
+		 Board s5 = new Board("567142308");
+		 List<Ilayout> o1 = new ArrayList<Ilayout>();
+		 List<Ilayout> o2 = s1.children();
+		 o1.add(s2);
+		 o1.add(s3);
+		 o1.add(s4);
+		 o1.add(s5);
+		 assertEquals(o1, o2);
+//		 Arrays.deepEquals(o1, o2);
 	 }
 }
