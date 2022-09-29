@@ -9,13 +9,13 @@ import java.util.Map;
 import java.util.PriorityQueue;
 import java.util.Queue;
 
-class BestFirst {
+public class BestFirst {
 	protected Queue<State> abertos;
 	private Map<Ilayout, State> fechados;
 	private State actual;
 	private Ilayout objective;
 
-	static class State {
+	public static class State {
 		private Ilayout layout;
 		private State father;
 		private double g;

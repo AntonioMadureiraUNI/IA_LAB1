@@ -1,9 +1,12 @@
-package trabalho;
+
 
 import java.util.Iterator;
 import java.util.Scanner;
 
-public class Client {
+import trabalho.BestFirst;
+import trabalho.Board;
+
+public class Main {
 
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
